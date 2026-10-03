@@ -39,6 +39,11 @@ target_include_directories(mctest PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/test")
 target_compile_options(mctest PRIVATE -Wall -Wextra -Werror)
 target_link_libraries(mctest PRIVATE m Threads::Threads)
 
+# Helpers for acceptance tests that drive a real program as a child process.
+add_library(mcaccept STATIC test/mcaccept.c)
+target_include_directories(mcaccept PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/test")
+target_compile_options(mcaccept PRIVATE -Wall -Wextra -Werror)
+
 # --- Helpers ----------------------------------------------------------------
 # add_chapter_test(<name> <sources>...) builds a test executable and registers
 # it with CTest. It links the mctest harness.
@@ -54,6 +59,15 @@ function(add_chapter_program name)
     add_executable(${name} ${ARGN})
     target_link_libraries(${name} PRIVATE m Threads::Threads)
     target_compile_options(${name} PRIVATE -Wall -Wextra -Werror)
+endfunction()
+
+# add_acceptance_test(<name> <server_target> <sources>...) builds an
+# acceptance test and runs it with the path to the server program as argv[1].
+function(add_acceptance_test name server_target)
+    add_executable(${name} ${ARGN})
+    target_link_libraries(${name} PRIVATE mctest mcaccept)
+    target_compile_options(${name} PRIVATE -Wall -Wextra -Werror)
+    add_test(NAME ${name} COMMAND ${name} $<TARGET_FILE:${server_target}>)
 endfunction()
 
 enable_testing()
@@ -105,3 +119,6 @@ add_subdirectory(reading-files)
 add_subdirectory(templating)
 add_subdirectory(generics)
 add_subdirectory(revisiting-arrays-and-pointers-with-generics)
+add_subdirectory(acceptance-tests)
+add_subdirectory(scaling-acceptance-tests)
+add_subdirectory(working-without-mocks)
