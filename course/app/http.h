@@ -12,6 +12,7 @@ struct http_request {
     char path[HTTP_PATH_MAX];
     char body[HTTP_BODY_MAX];
     size_t body_len;
+    char path_param[128]; /* captured by the router for {name} patterns */
 };
 
 struct http_response {

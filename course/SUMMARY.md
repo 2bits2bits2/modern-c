@@ -44,6 +44,13 @@
 * [Revisiting time, with a virtual clock](revisiting-time.md)
 * [WebSockets](websockets.md)
 
+## Questions and answers
+
+* [OS Exec](os-exec.md)
+* [Error types](error-types.md)
+* [A context-aware reader](context-aware-reader.md)
+* [Revisiting HTTP handlers](http-handlers-revisited.md)
+
 ## Meta
 
 * [Why unit tests and how to make them work for you](why.md)
