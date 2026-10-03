@@ -1,0 +1,16 @@
+.idea/
+*.iml
+
+# Book build output
+_book/
+
+# eBook build output
+*.epub
+*.mobi
+*.pdf
+
+# templated files
+meta.tex
+
+game.db.json
+.DS_Store

@@ -1,0 +1,29 @@
+# Style for Modern C with Tests.
+#
+# The book's code is formatted with clang-format. Run it with:
+#     cmake --build build --target format
+# or, for just the lines you changed:
+#     git clang-format
+---
+BasedOnStyle: LLVM
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ColumnLimit: 80
+
+# Function braces on their own line, control-statement braces attached.
+BreakBeforeBraces: Linux
+
+# Keep short bodies on their own lines; we are writing a book, not golf.
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+
+# const char *name, not const char* name.
+PointerAlignment: Right
+DerivePointerAlignment: false
+
+# Leave our include grouping and ordering alone.
+SortIncludes: Never
+IncludeBlocks: Preserve
+...
