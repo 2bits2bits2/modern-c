@@ -44,6 +44,14 @@ add_library(mcaccept STATIC test/mcaccept.c)
 target_include_directories(mcaccept PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/test")
 target_compile_options(mcaccept PRIVATE -Wall -Wextra -Werror)
 
+# --- The application library (Build an application) -------------------------
+# Grows by adding files, so earlier chapters keep compiling untouched.
+file(GLOB APP_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/app/*.c")
+add_library(app STATIC ${APP_SOURCES})
+target_include_directories(app PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/app")
+target_compile_options(app PRIVATE -Wall -Wextra -Werror)
+target_link_libraries(app PRIVATE m Threads::Threads)
+
 # --- Helpers ----------------------------------------------------------------
 # add_chapter_test(<name> <sources>...) builds a test executable and registers
 # it with CTest. It links the mctest harness.
@@ -122,3 +130,10 @@ add_subdirectory(revisiting-arrays-and-pointers-with-generics)
 add_subdirectory(acceptance-tests)
 add_subdirectory(scaling-acceptance-tests)
 add_subdirectory(working-without-mocks)
+add_subdirectory(http-server)
+add_subdirectory(json)
+add_subdirectory(io)
+add_subdirectory(command-line)
+add_subdirectory(time)
+add_subdirectory(revisiting-time)
+add_subdirectory(websockets)

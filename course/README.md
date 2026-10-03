@@ -41,7 +41,8 @@ never change earlier ones, so old code keeps compiling.
 ```
 course/
   CMakeLists.txt      # builds every chapter and registers its tests
-  test/               # our tiny test harness (mctest)
+  test/               # our tiny test harness (mctest) + process helpers
+  app/                # the growing application (Build an application)
   hello-world/
     v1/
     v2/
@@ -50,6 +51,11 @@ course/
     v1/
     ...
 ```
+
+The `app/` library is shared by the Build an application chapters: each one
+adds files to it rather than rewriting them, so earlier chapters keep
+compiling. The fundamentals and testing chapters are self-contained, with
+numbered snapshots as above.
 
 ## Running the tests
 

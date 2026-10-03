@@ -33,6 +33,17 @@
 * [Working without mocks, stubs and spies](working-without-mocks.md)
 * [Refactoring Checklist](refactoring-checklist.md)
 
+## Build an application
+
+* [A new application: the player store](app-intro.md)
+* [HTTP server](http-server.md)
+* [JSON, routing and embedding](json.md)
+* [IO and sorting](io.md)
+* [Command line & project structure](command-line.md)
+* [Time](time.md)
+* [Revisiting time, with a virtual clock](revisiting-time.md)
+* [WebSockets](websockets.md)
+
 ## Meta
 
 * [Why unit tests and how to make them work for you](why.md)
