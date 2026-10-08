@@ -4,3 +4,6 @@ build*/
 *.out
 *.dSYM/
 .DS_Store
+
+# mdBook output
+book/

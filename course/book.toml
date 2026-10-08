@@ -1,0 +1,14 @@
+[book]
+title = "Modern C with Tests"
+language = "en"
+src = "."
+
+[build]
+build-dir = "book"
+create-missing = false
+
+[output.html]
+git-repository-url = "https://github.com/2bits2bits2/modern-c"
+edit-url-template = "https://github.com/2bits2bits2/modern-c/edit/main/course/{path}"
+default-theme = "light"
+preferred-dark-theme = "navy"

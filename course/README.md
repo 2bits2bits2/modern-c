@@ -79,6 +79,21 @@ This book is written in Markdown and can be rendered with
 [mdBook](https://rust-lang.github.io/mdBook/), GitBook or plain Markdown
 viewers.
 
+## Building and publishing the book
+
+The GitBook-style site is generated with mdBook:
+
+```sh
+cd course
+mdbook build      # writes the site to course/book/
+mdbook serve      # preview it locally at http://localhost:3000
+```
+
+The [`Deploy book to GitHub Pages`](../.github/workflows/mdbook.yml) workflow
+builds the book on every push to `main` and publishes it to
+<https://2bits2bits2.github.io/modern-c/>. For this to work, set the repository's
+**Settings → Pages → Build and deployment → Source** to **GitHub Actions**.
+
 ## Table of contents
 
 See [SUMMARY.md](SUMMARY.md).
